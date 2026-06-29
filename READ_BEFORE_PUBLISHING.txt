@@ -1,0 +1,6 @@
+Before publishing:
+1. Confirm final portfolio URL/domain.
+2. Update the portfolio link inside LISPrimary Resume 4.2 June 2026.pdf. The current resume text still points to the older Google Sites URL.
+3. Replace assets/resume.pdf again after the resume has the new site URL.
+4. Add Google Analytics / Google tag to every HTML page once you have the Measurement ID.
+5. Publish the full folder structure together so CSS, images, JS, and PDF links stay intact.
