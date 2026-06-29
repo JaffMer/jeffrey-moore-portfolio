@@ -8,6 +8,7 @@ Before publishing:
 ## Future Updates
 - Add full Evergreen case study upon completion
 - Add microlearning showcase section
+- Embed feedback form on "Contact" page.
 
 
 # Portfolio Website
