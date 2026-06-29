@@ -4,3 +4,41 @@ Before publishing:
 3. Replace assets/resume.pdf again after the resume has the new site URL.
 4. Add Google Analytics / Google tag to every HTML page once you have the Measurement ID.
 5. Publish the full folder structure together so CSS, images, JS, and PDF links stay intact.
+
+
+# Portfolio Website
+
+Professional portfolio website for Jeffrey Moore, M.S. Ed. Intended use for use with applications in roles such as Learing & Development Specialist, Instructional Design, and Training Specialist.
+
+## Features
+
+- Liquid Glass UI
+- Interactive portfolio case studies
+- Responsive design
+- Embedded resume
+- Multimedia learning artifacts
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- GitHub Pages
+
+## Changelog
+
+### v9.0 — June 2026
+- Finalized Liquid Glass redesign
+- Added portfolio dropdown navigation
+- Updated homepage competencies section
+- Refined About page layout
+
+### v9.1 — June 2026
+- Added Evergreen Home Services onboarding teaser project
+- Updated downloadable resume
+- Added project screenshots and preview gallery
+
+### Planned Updates
+- Add Professional Music Career & Global Performance Experience carousel
+- Add full Evergreen case study upon completion
+- Add microlearning showcase section
