@@ -834,3 +834,90 @@ a.impact-card:hover,
     transform: translateY(10px) scale(.985) !important;
   }
 }
+
+/* v9.2 targeted updates: Evergreen prominence, professional music carousel, quote emphasis */
+.hero-philosophy h2 em,
+.about-philosophy h2 em {
+  font-style: italic !important;
+}
+
+.featured-project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.featured-project-grid .case-card {
+  height: 100%;
+}
+
+.featured-project-grid .featured-project-card {
+  grid-column: span 3;
+}
+
+.featured-project-grid .featured-project-card .body p {
+  max-width: 680px;
+}
+
+.featured-project-grid .featured-project-card .thumb img {
+  object-fit: cover !important;
+  object-position: top center !important;
+}
+
+.global-performance-carousel {
+  margin: 4px 0 30px;
+}
+
+.global-performance-carousel .carousel-track {
+  grid-auto-columns: minmax(320px, 460px) !important;
+  padding-bottom: 24px;
+}
+
+.global-performance-carousel .carousel-item {
+  min-height: 560px;
+}
+
+.global-performance-carousel .carousel-item img {
+  height: 350px !important;
+  width: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.global-performance-carousel .carousel-item figcaption {
+  padding: 18px 18px 20px;
+  margin: 0;
+  color: #526274;
+  line-height: 1.55;
+}
+
+.global-performance-carousel .carousel-item figcaption strong {
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.professional-music-links {
+  margin-top: 16px;
+}
+
+@media (max-width: 1000px) {
+  .featured-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .featured-project-grid .featured-project-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .featured-project-grid {
+    grid-template-columns: 1fr;
+  }
+  .global-performance-carousel .carousel-track {
+    grid-auto-columns: minmax(280px, 88vw) !important;
+  }
+  .global-performance-carousel .carousel-item {
+    min-height: 0;
+  }
+}
