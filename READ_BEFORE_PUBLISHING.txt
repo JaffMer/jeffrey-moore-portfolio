@@ -5,6 +5,10 @@ Before publishing:
 4. Add Google Analytics / Google tag to every HTML page once you have the Measurement ID.
 5. Publish the full folder structure together so CSS, images, JS, and PDF links stay intact.
 
+## Future Updates
+- Add full Evergreen case study upon completion
+- Add microlearning showcase section
+
 
 # Portfolio Website
 
@@ -38,7 +42,31 @@ Professional portfolio website for Jeffrey Moore, M.S. Ed. Intended use for use 
 - Updated downloadable resume
 - Added project screenshots and preview gallery
 
-### Planned Updates
-- Add Professional Music Career & Global Performance Experience carousel
-- Add full Evergreen case study upon completion
-- Add microlearning showcase section
+
+## Version 9.2 -- June 2026
+
+  ### New Features
+
+  - Added an expanded **Global Music Experiences & Professional Performance** section to the About page.
+  - Introduced international performance and travel highlights from experiences with the University of Louisville Cardinal Singers and Nova Singers.
+  - Added a new image gallery showcasing global performances, cultural experiences, and professional music milestones.
+
+  ### Portfolio Updates
+
+  - Enhanced visibility of the **Evergreen Home Services Onboarding Experience** by increasing the prominence of the featured project card.
+  - Updated project previews and supporting assets.
+
+  ### Design Improvements
+  
+  - Applied italic styling to the statement: *"Confidence unlocks every other part of learning."* on the Home and About pages.
+  - Added additional responsive styling updates to support new content sections and image displays.
+  
+  ### Resume & Navigation Updates
+  
+  - Updated downloadable resume files to include the new GitHub portfolio URL.
+  - Verified and updated resume download links throughout the site.
+  
+  ### Maintenance
+  
+  - Added new image assets supporting international music and travel experiences.
+  - General content refinement and visual polish.
