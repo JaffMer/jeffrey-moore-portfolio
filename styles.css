@@ -1052,29 +1052,56 @@ a.impact-card:hover,
   margin-top: 2px;
 }
 
-.matrix th.evergreen-col,
-.matrix td.evergreen-col {
-  background: linear-gradient(135deg, rgba(108,191,74,.20), rgba(255,255,255,.74)) !important;
-  border-top: 1px solid rgba(108,191,74,.26) !important;
-  border-bottom: 1px solid rgba(108,191,74,.26) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.82), 0 0 22px rgba(108,191,74,.16) !important;
-}
-.matrix th.evergreen-col {
-  color: var(--navy) !important;
-  border-radius: 16px 16px 0 0;
-}
-.matrix td.evergreen-col .check {
-  color: #3f7c36 !important;
-  text-shadow: 0 0 8px rgba(108,191,74,.48), 0 0 16px rgba(108,191,74,.22) !important;
+.matrix th,
+.matrix td {
+  position: relative;
+  z-index: 1;
 }
 
-.btn:focus-visible,
-.case-card:focus-visible,
-.nav-links a:focus-visible,
-.nav-drop-trigger:focus-visible,
-.evergreen-media-link:focus-visible {
-  outline: 3px solid rgba(108,191,74,.55) !important;
-  outline-offset: 4px;
+.matrix th.evergreen-col,
+.matrix td.evergreen-col {
+    background: transparent !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+
+}
+
+.matrix th.evergreen-col {
+    position: relative;
+    overflow: visible;
+    color: var(--navy) !important;
+    border-radius: 16px 16px 0 0;
+    background: rgba(255,255,255,.22) !important;
+    box-shadow:
+        inset 0 20px 0 rgba(255,255,255,.85),
+        0 0 75px rgba(108,191,74,.22),
+        0 0 100px rgba(108,191,74,.14) !important;
+}
+
+.matrix th.evergreen-col::after {
+    content: "";
+    position: absolute;
+    left: 75%;
+    top: 100%;
+    width: 520px;
+    height: 790px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(108,191,74,.30) 10%,
+        rgba(108,191,74,.16) 40%,
+        rgba(108,191,74,.07) 48%,
+        rgba(108,191,74,0) 90%
+    );
+    filter: blur(30px);
+}
+
+.matrix td.evergreen-col .check {
+  color: #3f7c36 !important;
+  text-shadow: 0 0 8px rgba(108, 191, 74, 0.48), 0 0 16px rgba(108, 191, 74, 0.22) !important;
 }
 
 @media (max-width: 1000px) {
@@ -1097,4 +1124,127 @@ a.impact-card:hover,
     opacity: 1;
     inset: 14px;
   }
+}
+
+/* --- v9.4 matrix glass refinement: softer rows + radial Evergreen glow --- */
+/* This overrides the earlier matrix row/column treatments so the Evergreen emphasis
+   feels like diffused light inside glass instead of a hard highlighted column. */
+
+.matrix.card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Diffused glow behind the Evergreen column area */
+.matrix.card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0px !important;
+  bottom: 8px !important;
+  left: 33.8% !important;
+  width: 150px !important;
+  height: 750px !important;
+  transform: translateX(-50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(108, 191, 74, 0.26) 100%,
+      rgba(108, 191, 74, 0.15) 100%,
+      rgba(108, 191, 74, 0.07) 95%,
+      rgba(108, 191, 74, 0) 80%
+    ) !important;
+  filter: blur(34px) !important;
+  opacity: 1 !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* Keep the actual table above the glow */
+.matrix.card table {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Make rows feel like glass instead of solid white cards */
+.matrix tbody td {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.38) !important;
+  border-bottom: 1px solid rgba(31, 59, 91, 0.035) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 10px 28px rgba(31, 59, 91, 0.025) !important;
+  backdrop-filter: blur(18px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+}
+
+/* Remove hard Evergreen cell edges; keep only a faint internal tint */
+.matrix th.evergreen-col,
+.matrix td.evergreen-col {
+  background: rgba(108, 191, 74, 0.10) !important;
+  border-top: 1px solid rgba(108, 191, 74, 0.14) !important;
+  border-bottom: 1px solid rgba(108, 191, 74, 0.12) !important;
+  box-shadow: none !important;
+}
+
+/* Header stays softly emphasized without creating a hard vertical slab */
+.matrix th.evergreen-col {
+  position: relative !important;
+  overflow: visible !important;
+  color: var(--navy) !important;
+  border-radius: 18px 18px 0 0 !important;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(108, 191, 74, 0.18) 100%,
+      rgba(255, 255, 255, 0.212) 80%,
+      rgba(255, 255, 255, 0.305) 100%
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 0 34px rgba(108, 191, 74, 0.18),
+    0 0 80px rgba(108, 191, 74, 0.10) !important;
+}
+
+/* Disable the previous header light-beam pseudo-element to avoid hard clipping */
+.matrix th.evergreen-col::after {
+  content: none !important;
+}
+
+/* Keep Evergreen checkmarks subtly brighter */
+.matrix td.evergreen-col .check {
+  color: #3f7c36 !important;
+  text-shadow:
+    0 0 7px rgba(108, 191, 74, 0.62),
+    0 0 15px rgba(108, 191, 74, 0.34),
+    0 0 24px rgba(108, 191, 74, 0.20) !important;
+}
+
+
+
+/* ==========================================================
+   Matrix Glass Transparency Update
+   ========================================================== */
+
+.matrix tbody td{
+    background: rgba(255,255,255,.10) !important;
+    backdrop-filter: blur(26px) saturate(1.35) !important;
+    -webkit-backdrop-filter: blur(26px) saturate(1.35) !important;
+
+    border-top: 1px solid rgba(255,255,255,.30) !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.42),
+        inset 0 -1px 0 rgba(255,255,255,.08) !important;
+}
+
+/* Preserve a subtle green tint in the featured column */
+.matrix td.evergreen-col{
+    background: rgba(108,191,74,.10) !important;
+}
+
+/* Make the competency column match the same glass treatment */
+.matrix tbody td:first-child{
+    background: rgba(255,255,255,.10) !important;
 }
