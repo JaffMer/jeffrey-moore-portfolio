@@ -1306,3 +1306,160 @@ a.impact-card:hover,
     grid-row:auto !important;
   }
 }
+
+/* --- v9.7 responsive mobile navigation repair --- */
+.mobile-menu {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(255,255,255,.72);
+  background: rgba(255,255,255,.46);
+  color: var(--navy);
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 16px;
+  font: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.86), 0 10px 26px rgba(31,59,91,.10);
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    width: calc(100% - 20px) !important;
+    top: 8px !important;
+    border-radius: 28px !important;
+    overflow: visible !important;
+  }
+
+  .site-nav .nav-inner {
+    min-height: 66px !important;
+    height: auto !important;
+    padding: 8px 12px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .brand {
+    min-width: 0 !important;
+    max-width: calc(100% - 62px) !important;
+  }
+
+  .brand img {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .brand span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .mobile-menu {
+    display: inline-flex !important;
+    margin-left: auto !important;
+    position: relative !important;
+    z-index: 100002 !important;
+    flex: 0 0 46px !important;
+  }
+
+  .nav-links {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 5px !important;
+    z-index: 100001 !important;
+    border-radius: 24px !important;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(108,191,74,.15), transparent 38%),
+      rgba(251,250,246,.94) !important;
+    border: 1px solid rgba(255,255,255,.88) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.96), 0 24px 70px rgba(31,59,91,.22) !important;
+    backdrop-filter: blur(28px) saturate(1.25) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(1.25) !important;
+  }
+
+  .nav-links.mobile-open {
+    display: flex !important;
+  }
+
+  .nav-links > a,
+  .nav-item.dropdown,
+  .nav-drop-trigger {
+    width: 100% !important;
+  }
+
+  .nav-links > a,
+  .nav-drop-trigger {
+    display: flex !important;
+    min-height: 46px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 11px 14px !important;
+    border-radius: 15px !important;
+    font-size: 1rem !important;
+    white-space: normal !important;
+  }
+
+  .nav-links > a.active,
+  .nav-drop-trigger.active,
+  .nav-links > a:hover,
+  .nav-drop-trigger:hover {
+    background: rgba(255,255,255,.64) !important;
+  }
+
+  .nav-item.dropdown {
+    display: block !important;
+  }
+
+  .dropdown-menu,
+  .nav-item.dropdown:hover .dropdown-menu,
+  .nav-item.dropdown:focus-within .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 5px 0 0 !important;
+    padding: 7px !important;
+    transform: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    display: none !important;
+    border-radius: 18px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.86), 0 10px 28px rgba(31,59,91,.10) !important;
+  }
+
+  .nav-item.dropdown.open .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .dropdown-menu a {
+    padding: 10px 11px !important;
+    border-radius: 13px !important;
+  }
+
+  .dropdown-label {
+    font-size: .62rem !important;
+  }
+
+  .dropdown-title {
+    font-size: .9rem !important;
+  }
+}

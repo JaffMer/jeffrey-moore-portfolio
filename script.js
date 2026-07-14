@@ -62,3 +62,61 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// v9.7 responsive mobile navigation
+(function () {
+  function initializeMobileNavigation() {
+    const menuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const siteNav = document.querySelector('.site-nav');
+
+    if (!menuButton || !navLinks || !siteNav || menuButton.dataset.mobileReady === 'true') return;
+    menuButton.dataset.mobileReady = 'true';
+
+    function closeMobileMenu() {
+      navLinks.classList.remove('mobile-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation menu');
+      menuButton.textContent = '☰';
+      document.querySelectorAll('.nav-item.dropdown.open').forEach(function (dropdown) {
+        dropdown.classList.remove('open');
+        const trigger = dropdown.querySelector('.nav-drop-trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    menuButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const opening = !navLinks.classList.contains('mobile-open');
+      if (opening) {
+        navLinks.classList.add('mobile-open');
+        menuButton.setAttribute('aria-expanded', 'true');
+        menuButton.setAttribute('aria-label', 'Close navigation menu');
+        menuButton.textContent = '×';
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (window.innerWidth <= 900 && navLinks.classList.contains('mobile-open') && !siteNav.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) closeMobileMenu();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeMobileNavigation);
+  } else {
+    initializeMobileNavigation();
+  }
+})();
