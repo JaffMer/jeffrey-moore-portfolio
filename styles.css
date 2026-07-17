@@ -1463,3 +1463,12 @@ a.impact-card:hover,
     font-size: .9rem !important;
   }
 }
+
+/* --- Phase 3: Leading Through Change initiative --- */
+.change-preview img{object-position:center!important;}
+.change-management-hero .evergreen-media-link{background:radial-gradient(circle at 82% 12%,rgba(108,191,74,.18),transparent 34%),rgba(238,242,245,.62)!important;}
+.change-management-hero .evergreen-media-link img.photo{aspect-ratio:16/10!important;object-fit:cover!important;object-position:center!important;padding:0!important;}
+.change-management-hero:before{background:linear-gradient(90deg,#1F3B5B 0%,#3F7C76 50%,#6CBF4A 100%)!important;opacity:.20!important;}
+.change-principle-callout{text-align:center;overflow:hidden;}
+.change-principle-callout .quote{max-width:900px;margin:12px auto 0;}
+@media(max-width:900px){.change-management-hero .evergreen-media-link img.photo{aspect-ratio:4/3!important;}}
