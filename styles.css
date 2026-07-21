@@ -1472,3 +1472,85 @@ a.impact-card:hover,
 .change-principle-callout{text-align:center;overflow:hidden;}
 .change-principle-callout .quote{max-width:900px;margin:12px auto 0;}
 @media(max-width:900px){.change-management-hero .evergreen-media-link img.photo{aspect-ratio:4/3!important;}}
+
+/* --- Contact page: LinkedIn link and two-column alignment --- */
+.contact-grid {
+  align-items: center;
+}
+
+.contact-intro {
+  min-width: 0;
+}
+
+.linkedin-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 34px;
+  text-align: center;
+}
+
+.linkedin-heading {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  color: var(--navy);
+}
+
+.linkedin-logo-link {
+  display: inline-flex;
+  width: 112px;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+
+.linkedin-logo-link img {
+  width: 100px;
+  height: auto;
+}
+
+.linkedin-logo-link:hover,
+.linkedin-logo-link:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(31,59,91,.20);
+  outline: none;
+}
+
+.linkedin-logo-link:focus-visible {
+  box-shadow:
+    0 0 0 4px rgba(108,191,74,.24),
+    0 20px 42px rgba(31,59,91,.20);
+}
+
+.contact-card {
+  align-self: stretch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkedin-logo-link {
+    transition: none;
+  }
+
+  .linkedin-logo-link:hover,
+  .linkedin-logo-link:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    align-items: start;
+  }
+
+  .linkedin-section {
+    margin-bottom: 18px;
+  }
+
+  .contact-card {
+    align-self: auto;
+  }
+}
