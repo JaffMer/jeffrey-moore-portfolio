@@ -1687,3 +1687,28 @@ a.impact-card:hover,
   }
 }
 
+
+
+/* --- Final mobile matrix scroll correction ---
+   A previous .matrix.card rule used overflow:hidden!important, which overrode
+   the scrolling rule. This more-specific override restores horizontal touch scrolling. */
+.matrix.card {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.matrix.card table {
+  width: max-content !important;
+  min-width: 860px !important;
+  table-layout: fixed !important;
+}
+
+@media (min-width: 701px) {
+  .matrix.card table {
+    width: 100% !important;
+    min-width: 920px !important;
+  }
+}
