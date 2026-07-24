@@ -1554,3 +1554,96 @@ a.impact-card:hover,
     align-self: auto;
   }
 }
+
+
+/* --- Mobile portfolio matrix + footer contrast fixes --- */
+
+/* Keep footer text readable against the site's light glass background. */
+.footer,
+.footer p,
+.footer a,
+.footer a:link,
+.footer a:visited {
+  color: var(--navy) !important;
+}
+
+.footer {
+  border-top: 1px solid rgba(31,59,91,.12);
+}
+
+/* Preserve the competency matrix instead of squeezing seven columns together. */
+.matrix {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(31,59,91,.38) rgba(255,255,255,.28);
+}
+
+.matrix table {
+  width: 100%;
+  min-width: 920px;
+  table-layout: fixed !important;
+}
+
+.matrix th,
+.matrix td {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+.matrix th:first-child,
+.matrix td:first-child {
+  width: 190px !important;
+}
+
+/* Keep the competency names visible while the user scrolls across projects. */
+.matrix th:first-child,
+.matrix td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background:
+    linear-gradient(145deg, rgba(248,251,247,.97), rgba(239,247,241,.94)) !important;
+  box-shadow: 8px 0 18px rgba(31,59,91,.08);
+}
+
+.matrix thead th:first-child {
+  z-index: 5;
+}
+
+@media (max-width: 700px) {
+  /* Let the matrix use nearly the full screen width while retaining page padding elsewhere. */
+  .matrix.card {
+    width: calc(100vw - 20px);
+    margin-left: calc(50% - 50vw + 10px);
+    margin-right: calc(50% - 50vw + 10px);
+    padding: 16px 10px !important;
+    border-radius: 24px !important;
+  }
+
+  .matrix table {
+    min-width: 860px;
+  }
+
+  .matrix th {
+    font-size: .78rem !important;
+    line-height: 1.2 !important;
+    padding: 10px 8px !important;
+  }
+
+  .matrix td {
+    padding: 12px 8px !important;
+  }
+
+  .matrix th:first-child,
+  .matrix td:first-child {
+    width: 175px !important;
+  }
+
+  .matrix td:first-child {
+    font-size: .9rem !important;
+    line-height: 1.28 !important;
+  }
+}
