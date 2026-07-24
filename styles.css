@@ -1138,12 +1138,12 @@ a.impact-card:hover,
 /* Diffused glow behind the Evergreen column area */
 .matrix.card::before {
   content: "" !important;
-  position: fixed !important;
+  position: absolute !important;
   top: 0px !important;
   bottom: 8px !important;
-  left: 25.3% !important;
+  left: 26.3% !important;
   width: 100px !important;
-  height: 650px !important;
+  height: 750px !important;
   transform: translateX(-50%) !important;
   pointer-events: none !important;
   z-index: 0 !important;
