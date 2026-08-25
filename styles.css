@@ -1712,3 +1712,278 @@ a.impact-card:hover,
     min-width: 920px !important;
   }
 }
+
+
+/* ============================================================
+   2026 portfolio refinement pass
+   ============================================================ */
+
+/* Stronger brand atmosphere while preserving the light site foundation. */
+body{
+  background:
+    radial-gradient(circle at 5% 8%, rgba(108,191,74,.32), transparent 30%),
+    radial-gradient(circle at 58% 3%, rgba(63,124,118,.28), transparent 34%),
+    radial-gradient(circle at 95% 18%, rgba(31,59,91,.28), transparent 34%),
+    linear-gradient(135deg, rgba(108,191,74,.08) 0%, rgba(63,124,118,.08) 48%, rgba(31,59,91,.10) 100%),
+    var(--cream) !important;
+}
+
+/* Competency labels: clearly informational, not buttons. */
+.chip,
+.case-card .chip,
+.evergreen-media-badges .chip{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 14px 8px 18px !important;
+  border-radius:12px !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(238,249,241,.30)) !important;
+  border:1px solid rgba(255,255,255,.88) !important;
+  color:var(--navy) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.96), 0 0 18px rgba(108,191,74,.14) !important;
+  backdrop-filter:blur(22px) saturate(1.35);
+  -webkit-backdrop-filter:blur(22px) saturate(1.35);
+  line-height:1.25;
+  text-align:center;
+  cursor:default;
+  transform:none !important;
+  transition:background .2s ease,border-color .2s ease,box-shadow .2s ease !important;
+}
+.chip::before,
+.case-card .chip::before,
+.evergreen-media-badges .chip::before{
+  content:"";
+  position:absolute;
+  left:5px;
+  top:6px;
+  bottom:6px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#6CBF4A 0%,#3F7C76 48%,#1F3B5B 100%);
+  box-shadow:0 0 10px rgba(108,191,74,.42),0 0 16px rgba(63,124,118,.28);
+}
+.chip:hover,.case-card .chip:hover{transform:none !important;}
+
+/* Home technology wall. */
+.tech-showcase{
+  position:relative;
+  overflow:hidden;
+  padding:72px 0 78px;
+  isolation:isolate;
+  background:linear-gradient(120deg,rgba(31,59,91,.88),rgba(63,124,118,.82) 48%,rgba(108,191,74,.72));
+}
+.tech-showcase::before,.tech-showcase::after,.tech-ambient::before,.tech-ambient::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(48px);opacity:.7;z-index:-1;
+  animation:techFloat 13s ease-in-out infinite alternate;
+}
+.tech-showcase::before{width:420px;height:420px;left:-120px;top:-180px;background:rgba(108,191,74,.65)}
+.tech-showcase::after{width:520px;height:520px;right:-170px;bottom:-270px;background:rgba(31,59,91,.70);animation-delay:-4s}
+.tech-ambient::before{width:330px;height:330px;left:42%;top:-110px;background:rgba(255,255,255,.18);animation-delay:-7s}
+.tech-ambient::after{width:250px;height:250px;left:23%;bottom:-150px;background:rgba(63,124,118,.75);animation-delay:-2s}
+@keyframes techFloat{to{transform:translate3d(70px,35px,0) scale(1.12)}}
+.tech-showcase-inner{position:relative;z-index:1}
+.tech-heading{text-align:center;color:white;margin:0 auto 34px;max-width:780px}
+.tech-heading .eyebrow{color:rgba(255,255,255,.80)}
+.tech-heading h2{color:white;font-size:clamp(2rem,4vw,3.35rem);margin:0 0 10px}
+.tech-heading p{color:rgba(255,255,255,.86);font-size:1.04rem}
+.tech-marquee{overflow:hidden;margin:16px calc(50% - 50vw);padding:8px 0}
+.tech-track{display:flex;width:max-content;gap:16px;animation:techScroll 42s linear infinite}
+.tech-marquee-two .tech-track{animation-name:techScrollReverse;animation-duration:52s}
+.tech-marquee:hover .tech-track,.tech-marquee:focus-within .tech-track{animation-play-state:paused}
+@keyframes techScroll{to{transform:translateX(-50%)}}
+@keyframes techScrollReverse{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tech-tile{
+  width:170px;height:112px;padding:16px 12px;border-radius:22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(255,255,255,.16));
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 12px 28px rgba(15,34,51,.15);
+  backdrop-filter:blur(24px) saturate(1.3);-webkit-backdrop-filter:blur(24px) saturate(1.3);
+  color:white;text-align:center;cursor:default;
+}
+.tech-tile img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 3px 8px rgba(0,0,0,.12))}
+.tech-fallback{width:36px;height:36px;border-radius:10px;place-items:center;background:rgba(255,255,255,.20);border:1px solid rgba(255,255,255,.38);font-size:.82rem;font-weight:900}
+.tech-tile strong{font-family:Inter,system-ui,sans-serif;font-size:.88rem;line-height:1.2;color:white}
+
+/* Home value proposition. */
+.effectiveness-card{text-align:center;padding:36px 34px}
+.effectiveness-card>p{max-width:720px;margin:8px auto 24px}
+.effectiveness-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.effectiveness-grid span{display:grid;place-items:center;min-height:74px;padding:14px;border-radius:18px;background:rgba(255,255,255,.30);border:1px solid rgba(255,255,255,.72);box-shadow:inset 0 1px 0 rgba(255,255,255,.9);font-weight:800;color:var(--navy)}
+
+/* About: all meaningful photos communicate clickability. */
+.lightbox-clickable{cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}
+.lightbox-clickable:hover,.lightbox-clickable:focus-within{transform:translateY(-5px);box-shadow:0 28px 70px rgba(31,59,91,.18)}
+[data-lightbox]{cursor:zoom-in}
+
+/* About travel: automatic motion on an atmospheric map-like stage. */
+.travel-motion-stage{position:relative;overflow:hidden;padding:26px 0;border-radius:34px;background:linear-gradient(120deg,rgba(31,59,91,.20),rgba(63,124,118,.18),rgba(108,191,74,.18));border:1px solid rgba(255,255,255,.70)}
+.travel-motion-stage::before{content:"";position:absolute;inset:-30%;background-image:radial-gradient(circle at 15% 35%,rgba(108,191,74,.42) 0 2px,transparent 3px),radial-gradient(circle at 48% 55%,rgba(63,124,118,.38) 0 2px,transparent 3px),radial-gradient(circle at 78% 28%,rgba(31,59,91,.36) 0 2px,transparent 3px),repeating-linear-gradient(8deg,transparent 0 56px,rgba(31,59,91,.06) 57px 58px);animation:mapDrift 22s linear infinite;pointer-events:none}
+@keyframes mapDrift{to{transform:translateX(12%) translateY(-4%)}}
+.global-performance-carousel .carousel-track{position:relative;z-index:1;display:flex!important;width:max-content;overflow:visible!important;gap:18px;animation:travelScroll 75s linear infinite;padding:10px 18px 24px}
+.global-performance-carousel:hover .carousel-track{animation-play-state:paused}
+.global-performance-carousel .carousel-item{width:390px;flex:0 0 390px;background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.22))}
+@keyframes travelScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Portfolio translation section. Matrix is intentionally not part of these selectors. */
+.translation-section{position:relative;overflow:hidden}
+.translation-centered{position:relative;display:grid;justify-items:center;text-align:center;gap:24px}
+.translation-copy{max-width:900px;z-index:2}
+.translation-copy p{max-width:790px!important;margin-left:auto;margin-right:auto}
+.translation-graphic-card{width:min(900px,100%);z-index:2}
+.translation-graphic-card img{width:100%;display:block}
+.translation-flow{position:absolute;inset:15% 0 0;pointer-events:none;z-index:0;overflow:hidden}
+.translation-flow span{position:absolute;left:-20%;width:52%;height:160px;border-radius:50%;filter:blur(26px);opacity:.38;animation:translateFlow 11s linear infinite;background:linear-gradient(90deg,rgba(108,191,74,.65),rgba(63,124,118,.45),rgba(31,59,91,.55))}
+.translation-flow span:nth-child(2){top:30%;animation-delay:-4s;opacity:.28}.translation-flow span:nth-child(3){top:62%;animation-delay:-8s;opacity:.22}
+@keyframes translateFlow{to{transform:translateX(250%) scale(.8)}}
+
+/* Standard project-analysis challenge card. */
+.design-challenge-section{padding:30px 0 28px}
+.design-challenge-card{position:relative;overflow:hidden;padding:34px 38px;background:linear-gradient(125deg,rgba(255,255,255,.58),rgba(108,191,74,.15) 58%,rgba(31,59,91,.12))}
+.design-challenge-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(180deg,#6CBF4A,#3F7C76,#1F3B5B);box-shadow:0 0 20px rgba(108,191,74,.35)}
+.design-challenge-card h2{font-size:clamp(1.8rem,3vw,2.75rem);max-width:1000px}
+.design-challenge-card p:last-child{max-width:980px;font-size:1.02rem}
+
+/* Clickable evidence/artifact cards lift consistently. */
+.artifact:has([data-lightbox]),.impact-card:has([data-lightbox]),.carousel-item:has([data-lightbox]){cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}
+.artifact:has([data-lightbox]):hover,.impact-card:has([data-lightbox]):hover,.carousel-item:has([data-lightbox]):hover{transform:translateY(-5px);box-shadow:0 30px 72px rgba(31,59,91,.17)}
+
+/* Process visuals used by leadership/change analyses. */
+.process-flow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 0 26px;padding:18px 22px;border-radius:22px;background:linear-gradient(120deg,rgba(255,255,255,.44),rgba(108,191,74,.12),rgba(31,59,91,.08));border:1px solid rgba(255,255,255,.76);font-weight:900;color:var(--navy)}
+.process-flow span{padding:8px 13px;border-radius:12px;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.76)}
+.process-flow b{color:var(--teal);font-size:1.15rem}
+.change-flow-section{padding:10px 0 40px}
+
+/* Footer contrast remains deliberate. */
+.footer,.footer p,.footer a{color:rgba(255,255,255,.92)!important}.footer{background:#13243a!important}
+
+@media(max-width:900px){
+  .effectiveness-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tech-tile{width:150px;height:102px}
+  .global-performance-carousel .carousel-item{width:320px;flex-basis:320px}
+}
+@media(max-width:600px){
+  .effectiveness-grid{grid-template-columns:1fr}
+  .tech-showcase{padding:56px 0}
+  .tech-tile{width:136px;height:96px}
+  .design-challenge-card{padding:28px 24px}
+  .process-flow{gap:7px}.process-flow b{font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .tech-track,.travel-motion-stage::before,.global-performance-carousel .carousel-track,.translation-flow span{animation:none!important;transform:none!important}
+  .tech-marquee{overflow-x:auto}.global-performance-carousel .carousel-track{width:auto;overflow-x:auto!important}
+}
+
+/* ===== Aug 2026 polish: tech showcase balance ===== */
+/* Keep the established brand palette, but shift the animated showcase toward navy/teal. */
+.tech-showcase{
+  background:linear-gradient(120deg,
+    rgba(31,59,91,.94) 0%,
+    rgba(31,59,91,.88) 28%,
+    rgba(63,124,118,.78) 64%,
+    rgba(108,191,74,.50) 100%);
+}
+.tech-showcase::before{
+  width:380px;height:380px;left:-130px;top:-170px;
+  background:rgba(108,191,74,.34);
+}
+.tech-showcase::after{
+  width:600px;height:600px;right:-150px;bottom:-300px;
+  background:rgba(31,59,91,.82);
+}
+.tech-ambient::before{
+  background:rgba(255,255,255,.11);
+}
+.tech-ambient::after{
+  background:rgba(63,124,118,.52);
+}
+
+/* Heading copy stays readable and consistent with the rest of the site. */
+.tech-heading,
+.tech-heading .eyebrow,
+.tech-heading h2,
+.tech-heading p{
+  color:var(--navy) !important;
+  text-shadow:none !important;
+}
+.tech-heading .eyebrow{opacity:.88}
+
+/* Lighter glass so the animated gradient/shapes remain visible through the cards. */
+.tech-tile{
+  background:linear-gradient(145deg,
+    rgba(255,255,255,.25),
+    rgba(255,255,255,.10) 58%,
+    rgba(255,255,255,.055)) !important;
+  border-color:rgba(255,255,255,.58) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.66),0 12px 32px rgba(31,59,91,.10) !important;
+  backdrop-filter:blur(12px) saturate(1.08) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.08) !important;
+}
+.tech-tile strong{color:var(--navy) !important;text-shadow:none !important}
+.tech-fallback{
+  color:var(--navy) !important;
+  background:rgba(255,255,255,.18) !important;
+  border-color:rgba(255,255,255,.48) !important;
+}
+
+
+/* ===== Aug 2026 final visual corrections ===== */
+
+/* Site-wide background: preserve the brand navy → teal → green progression,
+   but rebalance it so navy/teal carry more visual weight than green. */
+body{
+  background:
+    radial-gradient(circle at 8% 4%, rgba(31,59,91,.22), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(63,124,118,.18), transparent 34%),
+    radial-gradient(circle at 80% 88%, rgba(108,191,74,.11), transparent 30%),
+    linear-gradient(135deg,
+      rgba(31,59,91,.055) 0%,
+      rgba(63,124,118,.045) 55%,
+      rgba(108,191,74,.035) 100%),
+    var(--cream) !important;
+}
+
+/* Only the NEW animated Home technology tiles get lighter glass.
+   Existing site cards/buttons are intentionally untouched. */
+.tech-tile{
+  background:linear-gradient(145deg,
+    rgba(255,255,255,.16),
+    rgba(255,255,255,.065) 60%,
+    rgba(255,255,255,.035)) !important;
+  border-color:rgba(255,255,255,.46) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.52),
+    0 10px 26px rgba(31,59,91,.08) !important;
+  backdrop-filter:blur(7px) saturate(1.04) !important;
+  -webkit-backdrop-filter:blur(7px) saturate(1.04) !important;
+}
+
+/* The NEW animated About travel cards use the same lighter-glass principle,
+   allowing the geographic motion layer to remain visible behind them. */
+.travel-motion-stage .global-performance-carousel .carousel-item{
+  background:linear-gradient(145deg,
+    rgba(255,255,255,.24),
+    rgba(255,255,255,.085)) !important;
+  border-color:rgba(255,255,255,.50) !important;
+  backdrop-filter:blur(8px) saturate(1.05) !important;
+  -webkit-backdrop-filter:blur(8px) saturate(1.05) !important;
+}
+
+/* Keep all new animated-section typography readable in the established navy. */
+.tech-heading,
+.tech-heading .eyebrow,
+.tech-heading h2,
+.tech-heading p,
+.tech-tile strong{
+  color:var(--navy) !important;
+  text-shadow:none !important;
+}
+
+/* Local logo assets supplied for the technology wall. */
+.tech-tile img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}

@@ -120,3 +120,23 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeMobileNavigation();
   }
 })();
+
+
+// 2026 portfolio refinement: consistent lightbox interaction cues and accessibility.
+document.querySelectorAll('[data-lightbox]').forEach(function (img) {
+  img.setAttribute('tabindex','0');
+  img.setAttribute('role','button');
+  img.setAttribute('aria-label',(img.alt || 'Image') + ', open larger view');
+  img.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      img.click();
+    }
+  });
+  const surface = img.closest('.artifact,.impact-card,.carousel-item,.banner,.card');
+  if (surface) surface.classList.add('lightbox-clickable');
+});
+
+document.addEventListener('keydown', function(event){
+  if(event.key === 'Escape' && lb.classList.contains('open')) lb.classList.remove('open');
+});
